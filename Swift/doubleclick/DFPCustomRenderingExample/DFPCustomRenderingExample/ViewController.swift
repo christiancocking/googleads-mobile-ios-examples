@@ -180,9 +180,15 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
   // MARK: - GADNativeContentAdLoaderDelegate
 
   func adLoader(_ adLoader: GADAdLoader, didReceive nativeContentAd: GADNativeContentAd) {
-    print("Received native content ad: \(nativeContentAd)")
+   // print("Received native content ad: \(nativeContentAd)")
     refreshAdButton.isEnabled = true
 
+    
+    let vc1 = nativeContentAd.videoController
+    if vc1.hasVideoContent() {
+        print ("The aspect ratio is \(vc1.aspectRatio())")
+    }
+    
     // Create and place the ad in the view hierarchy.
     let contentAdView = Bundle.main.loadNibNamed(
         "NativeContentAdView", owner: nil, options: nil)?.first as! GADNativeContentAdView
