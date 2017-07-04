@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		105833BD1F0C3BA6006DCA81 /* NativeVideoContentAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 105833BC1F0C3BA6006DCA81 /* NativeVideoContentAdView.xib */; };
 		4AE4C01A1BFCCF8300655115 /* NativeAppInstallAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4C0141BFCCF8300655115 /* NativeAppInstallAdView.xib */; };
 		4AE4C01B1BFCCF8300655115 /* NativeContentAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4C0161BFCCF8300655115 /* NativeContentAdView.xib */; };
 		4AE4C01C1BFCCF8300655115 /* SimpleCustomNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4C0181BFCCF8300655115 /* SimpleCustomNativeAdView.xib */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		105833BC1F0C3BA6006DCA81 /* NativeVideoContentAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeVideoContentAdView.xib; sourceTree = "<group>"; };
 		340CF85FD9D01516DA3802B4 /* Pods-DFPCustomRenderingExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DFPCustomRenderingExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-DFPCustomRenderingExample/Pods-DFPCustomRenderingExample.release.xcconfig"; sourceTree = "<group>"; };
 		4AE4C0151BFCCF8300655115 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NativeAppInstallAdView.xib; sourceTree = "<group>"; };
 		4AE4C0171BFCCF8300655115 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NativeContentAdView.xib; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				4AEBD8CB1BF01E7300874961 /* MySimpleNativeAdView.swift */,
 				4AEBD8B71BF01CF200874961 /* Main.storyboard */,
 				4AEBD8BC1BF01CF200874961 /* LaunchScreen.storyboard */,
+				105833BC1F0C3BA6006DCA81 /* NativeVideoContentAdView.xib */,
 				4AE4C0141BFCCF8300655115 /* NativeAppInstallAdView.xib */,
 				4AE4C0161BFCCF8300655115 /* NativeContentAdView.xib */,
 				4AE4C0181BFCCF8300655115 /* SimpleCustomNativeAdView.xib */,
@@ -162,6 +165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				105833BD1F0C3BA6006DCA81 /* NativeVideoContentAdView.xib in Resources */,
 				4AEBD8BE1BF01CF200874961 /* LaunchScreen.storyboard in Resources */,
 				4AE4C01C1BFCCF8300655115 /* SimpleCustomNativeAdView.xib in Resources */,
 				4AEBD8BB1BF01CF200874961 /* Assets.xcassets in Resources */,

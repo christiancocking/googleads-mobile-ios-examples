@@ -187,38 +187,53 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
     let vc1 = nativeContentAd.videoController
     if vc1.hasVideoContent() {
         print ("The aspect ratio is \(vc1.aspectRatio())")
+        
+        // Create and place the ad in the view hierarchy.
+        let contentAdView = Bundle.main.loadNibNamed(
+            "NativeVideoContentAdView", owner: nil, options: nil)?.first as! GADNativeContentAdView
+        setAdView(contentAdView)
+        
+        // Associate the content ad view with the content ad object. This is required to make the ad
+        // clickable.
+        contentAdView.nativeContentAd = nativeContentAd
+        
+    } else {
+        // Create and place the ad in the view hierarchy.
+        let contentAdView = Bundle.main.loadNibNamed(
+            "NativeContentAdView", owner: nil, options: nil)?.first as! GADNativeContentAdView
+        setAdView(contentAdView)
+        
+        // Associate the content ad view with the content ad object. This is required to make the ad
+        // clickable.
+        contentAdView.nativeContentAd = nativeContentAd
+        
+        // Populate the content ad view with the content ad assets.
+        // Some assets are guaranteed to be present in every content ad.
+        (contentAdView.headlineView as! UILabel).text = nativeContentAd.headline
+        (contentAdView.bodyView as! UILabel).text = nativeContentAd.body
+        (contentAdView.imageView as! UIImageView).image =
+            (nativeContentAd.images?.first as! GADNativeAdImage).image
+        (contentAdView.advertiserView as! UILabel).text = nativeContentAd.advertiser
+        (contentAdView.callToActionView as! UIButton).setTitle(
+            nativeContentAd.callToAction, for: UIControlState.normal)
+        
+        // Other assets are not, however, and should be checked first.
+        let logoView = contentAdView.logoView
+        if let logoImage = nativeContentAd.logo?.image {
+            (logoView as! UIImageView).image = logoImage
+            logoView?.isHidden = false
+        } else {
+            logoView?.isHidden = true
+        }
+        
+        // In order for the SDK to process touch events properly, user interaction should be disabled.
+        (contentAdView.callToActionView as! UIButton).isUserInteractionEnabled = false
+    
     }
     
-    // Create and place the ad in the view hierarchy.
-    let contentAdView = Bundle.main.loadNibNamed(
-        "NativeContentAdView", owner: nil, options: nil)?.first as! GADNativeContentAdView
-    setAdView(contentAdView)
+  
 
-    // Associate the content ad view with the content ad object. This is required to make the ad
-    // clickable.
-    contentAdView.nativeContentAd = nativeContentAd
-
-    // Populate the content ad view with the content ad assets.
-    // Some assets are guaranteed to be present in every content ad.
-    (contentAdView.headlineView as! UILabel).text = nativeContentAd.headline
-    (contentAdView.bodyView as! UILabel).text = nativeContentAd.body
-    (contentAdView.imageView as! UIImageView).image =
-        (nativeContentAd.images?.first as! GADNativeAdImage).image
-    (contentAdView.advertiserView as! UILabel).text = nativeContentAd.advertiser
-    (contentAdView.callToActionView as! UIButton).setTitle(
-        nativeContentAd.callToAction, for: UIControlState.normal)
-
-    // Other assets are not, however, and should be checked first.
-    let logoView = contentAdView.logoView
-    if let logoImage = nativeContentAd.logo?.image {
-      (logoView as! UIImageView).image = logoImage
-      logoView?.isHidden = false
-    } else {
-      logoView?.isHidden = true
-    }
-
-    // In order for the SDK to process touch events properly, user interaction should be disabled.
-    (contentAdView.callToActionView as! UIButton).isUserInteractionEnabled = false
+   
   }
 
   // MARK: - GADNativeCustomTemplateAdLoaderDelegate
