@@ -197,6 +197,11 @@ class ViewController: UIViewController, GADNativeAppInstallAdLoaderDelegate,
         // clickable.
         contentAdView.nativeContentAd = nativeContentAd
         
+        // Populate the content ad view with the content ad assets.
+        // Some assets are guaranteed to be present in every content ad.
+        (contentAdView.headlineView as! UILabel).text = nativeContentAd.headline
+        (contentAdView.bodyView as! UILabel).text = nativeContentAd.body
+        (contentAdView.advertiserView as! UILabel).text = nativeContentAd.advertiser
     } else {
         // Create and place the ad in the view hierarchy.
         let contentAdView = Bundle.main.loadNibNamed(
